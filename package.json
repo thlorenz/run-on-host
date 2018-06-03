@@ -1,0 +1,35 @@
+{
+  "name": "run-on-host",
+  "version": "0.0.0",
+  "description": "Runs a given command on a specific ansible host.",
+  "main": "run-on-host.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "bin": "./bin/run-on-host",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thlorenz/run-on-host.git"
+  },
+  "homepage": "https://github.com/thlorenz/run-on-host",
+  "dependencies": {
+    "child-process-promise": "~2.2.1",
+    "minimist": "~1.2.0"
+  },
+  "devDependencies": {
+    "tape": "~4.9.0"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Thorsten Lorenz",
+    "email": "thlorenz@gmx.de",
+    "url": "http://thlorenz.com"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/thlorenz/run-on-host/blob/master/LICENSE"
+  },
+  "engine": {
+    "node": ">=6"
+  }
+}

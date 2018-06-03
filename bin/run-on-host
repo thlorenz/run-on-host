@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const minimist = require('minimist')
+const runOnHost = require('../')
+
+const argv = minimist(
+    process.argv.slice(2)
+  , { string: [ 'host', 'root' ] }
+)
+
+const ansibleRoot = argv.root || process.cwd()
+const host = argv.host
+
+function usage() {
+  return `
+Usage:
+
+  run-on-host --host=<host> [--root=<ansible root>] <command>
+
+Example:
+  run-on-host --host=vagrant ls -la /var/log
+`
+}
+
+if (host == null) {
+  console.error(usage())
+  console.error('\nMissing --host')
+  process.exit(1)
+}
+
+const cmd = argv._.join(' ')
+
+;(async () => {
+  try {
+    await runOnHost(cmd, host, { ansibleRoot, pipe: true })
+  } catch (err) {
+    console.error(err)
+    process.exit(-1)
+  }
+})()

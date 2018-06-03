@@ -1,0 +1,5 @@
+[vagrant]
+host_vagrant
+
+[cloud]
+host_gcloud

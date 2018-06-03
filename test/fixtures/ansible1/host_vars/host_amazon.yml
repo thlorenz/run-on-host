@@ -1,0 +1,5 @@
+ansible_ssh_port: 22
+ansible_ssh_host: mysite.net
+ansible_ssh_user: aws
+ansible_user: aws
+remote_user: aws
