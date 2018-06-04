@@ -14,7 +14,7 @@ const sshCommand = require('./lib/ssh-command')
  * @param {Boolean} [$0.pipe=true] if `true` pipes command output to stdout/stderr
  * @return {Promise} that resolves once command completed or rejects if something goes wrong
  */
-async function runOnHost(cmd, host, { ansibleRoot, pipe = true }) {
+async function runOnHost(cmd, host, { ansibleRoot, pipe = true } = {}) {
   const fullCommand = await sshCommand(cmd, host, ansibleRoot)
   const parts = fullCommand.split(' ')
   const command = parts[0]
