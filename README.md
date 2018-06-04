@@ -2,12 +2,17 @@
 
 Runs a given command on a specific ansible host.
 
-    Usage:
+```sh
+Usage:
 
-      run-on-host --host=<host> [--root=<ansible root>] <command>
+  run-on-host <host> <command>
+  # OR verbose with more options
+  run-on-host --host=<host> [--root=<ansible root>] <command>
 
-    Example:
-      run-on-host --host=vagrant ls -la /var/log
+Example:
+  run-on-host vagrant ls -la /var/log
+  run-on-host --host=vagrant ls -la /var/log
+```
 
 ## Installation
 
@@ -29,9 +34,6 @@ Determines user, hostname and port from the ansible-inventory.
 -   `$0` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** options
     -   `$0.ansibleRoot` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** the root directory, i.e. where the `ansible.cfg` file lives (optional, default `cwd`)
     -   `$0.pipe` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** if `true` pipes command output to stdout/stderr (optional, default `true`)
--   `$2` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `$2.ansibleRoot`  
-    -   `$2.pipe`   (optional, default `true`)
 
 Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** that resolves once command completed or rejects if something goes wrong
 

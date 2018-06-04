@@ -8,29 +8,40 @@ const runOnHost = require('../')
 const argv = minimist(
     process.argv.slice(2)
   , { string: [ 'host', 'root' ] }
+  , { boolean: [ 'help' ] }
 )
-
-const ansibleRoot = argv.root || process.cwd()
-const host = argv.host
 
 function usage() {
   return `
 Usage:
 
+  run-on-host <host> <command>
+  # OR verbose with more options
   run-on-host --host=<host> [--root=<ansible root>] <command>
 
 Example:
+  run-on-host vagrant ls -la /var/log
   run-on-host --host=vagrant ls -la /var/log
 `
 }
 
-if (host == null) {
+if (argv.help) {
   console.error(usage())
-  console.error('\nMissing --host')
-  process.exit(1)
+  process.exit(0)
 }
 
-const cmd = argv._.join(' ')
+const ansibleRoot = argv.root || process.cwd()
+let host = argv.host
+let cmd
+
+if (host == null) {
+  // assume that first part 'word' is the host
+  host = argv._[0]
+  cmd = argv._.slice(1).join(' ')
+} else {
+  // --host provided
+  cmd = argv._.join(' ')
+}
 
 ;(async () => {
   try {
