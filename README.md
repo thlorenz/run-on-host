@@ -2,12 +2,17 @@
 
 Runs a given command on a specific ansible host.
 
-    Usage:
+```sh
+Usage:
 
-      run-on-host --host=<host> [--root=<ansible root>] <command>
+  run-on-host <host> <command>
+  # OR verbose with more options
+  run-on-host --host=<host> [--root=<ansible root>] <command>
 
-    Example:
-      run-on-host --host=vagrant ls -la /var/log
+Example:
+  run-on-host vagrant ls -la /var/log
+  run-on-host --host=vagrant ls -la /var/log
+```
 
 ## Installation
 
