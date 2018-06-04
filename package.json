@@ -30,6 +30,6 @@
     "url": "https://github.com/thlorenz/run-on-host/blob/master/LICENSE"
   },
   "engine": {
-    "node": ">=6"
+    "node": ">=8"
   }
 }
