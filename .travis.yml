@@ -7,4 +7,5 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - pip install ansible
+  - sudo pip install ansible
+  - npm install
