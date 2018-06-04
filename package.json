@@ -1,6 +1,6 @@
 {
   "name": "run-on-host",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Runs a given command on a specific ansible host.",
   "main": "run-on-host.js",
   "scripts": {
